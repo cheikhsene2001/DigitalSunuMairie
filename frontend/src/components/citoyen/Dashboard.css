@@ -1,0 +1,65 @@
+.citoyen-container {
+  background: #f7f7f7;
+  min-height: 100vh;
+}
+
+.citoyen-navbar {
+  background: #006d38;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.navbar-links li {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.navbar-links .active {
+  text-decoration: underline;
+}
+
+.logout-btn {
+  background: #d40000;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.citoyen-content {
+  padding: 30px;
+}
+
+.dashboard-welcome {
+  text-align: center;
+  padding: 40px;
+}
+
+.welcome-img {
+  width: 180px;
+  margin: 20px 0;
+}
+
+.demande-btn {
+  background: #f1c40f;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}

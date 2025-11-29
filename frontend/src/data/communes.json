@@ -1,0 +1,239 @@
+[
+  {
+    "region": "Dakar",
+    "departements": [
+      {
+        "nom": "Dakar",
+        "communes": ["Dakar Plateau", "Fann-Point E", "Médina", "Gorée", "Gueule Tapée-Fass-Colobane"]
+      },
+      {
+        "nom": "Pikine",
+        "communes": ["Pikine Nord", "Pikine Est", "Pikine Ouest", "Guinaw Rail Nord", "Guinaw Rail Sud"]
+      },
+      {
+        "nom": "Guédiawaye",
+        "communes": ["Golf Sud", "Wakhinane-Nimzatt", "Sam-Notaire", "Médina Gounass"]
+      },
+      {
+        "nom": "Rufisque",
+        "communes": ["Rufisque Est", "Rufisque Ouest", "Rufisque Nord", "Bargny", "Sendou", "Sangalkam"]
+      },
+      {
+        "nom": "Keur Massar",
+        "communes": ["Keur Massar"]
+      }
+    ]
+  },
+  {
+    "region": "Thiès",
+    "departements": [
+      {
+        "nom": "Thiès",
+        "communes": ["Thiès Nord", "Thiès Ouest", "Thiès Est"]
+      },
+      {
+        "nom": "Mbour",
+        "communes": ["Mbour", "Ngaparou", "Somone", "Saly Portudal"]
+      },
+      {
+        "nom": "Tivaouane",
+        "communes": ["Tivaouane", "Mékhé", "Pambal"]
+      }
+    ]
+  },
+  {
+    "region": "Saint-Louis",
+    "departements": [
+      {
+        "nom": "Saint-Louis",
+        "communes": ["Saint-Louis", "Gandon", "Mpal"]
+      },
+      {
+        "nom": "Dagana",
+        "communes": ["Dagana", "Richard-Toll", "Rosso Sénégal"]
+      },
+      {
+        "nom": "Podor",
+        "communes": ["Podor", "Pété", "Golléré"]
+      }
+    ]
+  },
+  {
+    "region": "Diourbel",
+    "departements": [
+      {
+        "nom": "Diourbel",
+        "communes": ["Diourbel", "Ndindy"]
+      },
+      {
+        "nom": "Bambey",
+        "communes": ["Bambey", "Ngoye"]
+      },
+      {
+        "nom": "Mbacké",
+        "communes": ["Mbacké", "Touba"]
+      }
+    ]
+  },
+  {
+    "region": "Kaolack",
+    "departements": [
+      {
+        "nom": "Kaolack",
+        "communes": ["Kaolack", "Ndoulou"]
+      },
+      {
+        "nom": "Guinguinéo",
+        "communes": ["Guinguinéo"]
+      },
+      {
+        "nom": "Nioro du Rip",
+        "communes": ["Nioro du Rip"]
+      }
+    ]
+  },
+  {
+    "region": "Fatick",
+    "departements": [
+      {
+        "nom": "Fatick",
+        "communes": ["Fatick", "Diofior"]
+      },
+      {
+        "nom": "Foundiougne",
+        "communes": ["Foundiougne", "Passy","Sokone"]
+      },
+      {
+        "nom": "Gossas",
+        "communes": ["Gossas"]
+      }
+    ]
+  },
+  {
+    "region": "Kaffrine",
+    "departements": [
+      {
+        "nom": "Kaffrine",
+        "communes": ["Kaffrine", "Kahone"]
+      },
+      {
+        "nom": "Birkilane",
+        "communes": ["Birkilane"]
+      },
+      {
+        "nom": "Malem-Hodar",
+        "communes": ["Malem Hodar"]
+      },
+      {
+        "nom": "Kounguel",
+        "communes": ["Kounguel"]
+      }
+    ]
+  },
+  {
+    "region": "Kolda",
+    "departements": [
+      {
+        "nom": "Kolda",
+        "communes": ["Kolda", "Dabo"]
+      },
+      {
+        "nom": "Vélingara",
+        "communes": ["Vélingara"]
+      },
+      {
+        "nom": "Médina Yoro Foulah",
+        "communes": ["Médina Yoro Foulah"]
+      }
+    ]
+  },
+  {
+    "region": "Sédhiou",
+    "departements": [
+      {
+        "nom": "Sédhiou",
+        "communes": ["Sédhiou"]
+      },
+      {
+        "nom": "Bounkiling",
+        "communes": ["Bounkiling"]
+      },
+      {
+        "nom": "Goudomp",
+        "communes": ["Goudomp"]
+      }
+    ]
+  },
+  {
+    "region": "Tambacounda",
+    "departements": [
+      {
+        "nom": "Tambacounda",
+        "communes": ["Tambacounda", "Koussanar"]
+      },
+      {
+        "nom": "Bakel",
+        "communes": ["Bakel"]
+      },
+      {
+        "nom": "Koumpentoum",
+        "communes": ["Koumpentoum"]
+      },
+      {
+        "nom": "Goudiry",
+        "communes": ["Goudiry"]
+      }
+    ]
+  },
+  {
+    "region": "Kédougou",
+    "departements": [
+      {
+        "nom": "Kédougou",
+        "communes": ["Kédougou"]
+      },
+      {
+        "nom": "Salemata",
+        "communes": ["Salemata"]
+      },
+      {
+        "nom": "Saraya",
+        "communes": ["Saraya"]
+      }
+    ]
+  },
+  {
+    "region": "Louga",
+    "departements": [
+      {
+        "nom": "Louga",
+        "communes": ["Louga", "Darou Mouhty"]
+      },
+      {
+        "nom": "Kébémer",
+        "communes": ["Kébémer"]
+      },
+      {
+        "nom": "Linguère",
+        "communes": ["Linguère"]
+      }
+    ]
+  },
+  {
+    "region": "Matam",
+    "departements": [
+      {
+        "nom": "Matam",
+        "communes": ["Matam"]
+      },
+      {
+        "nom": "Kanel",
+        "communes": ["Kanel"]
+      },
+      {
+        "nom": "Ranérou",
+        "communes": ["Ranérou", "Ranérou-Ferlo"]
+      }
+    ]
+  }
+]

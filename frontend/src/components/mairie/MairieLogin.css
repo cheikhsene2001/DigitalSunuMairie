@@ -1,0 +1,115 @@
+/* --- Conteneur principal --- */
+.login-container {
+  max-width: 420px;
+  margin: 80px auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.login-container:hover {
+  transform: translateY(-2px);
+}
+
+.login-container h2 {
+  text-align: center;
+  color: #1c3faa;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+}
+
+/* --- Formulaire --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+select,
+input[type="password"] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+select:focus,
+input[type="password"]:focus {
+  border-color: #1c3faa;
+  box-shadow: 0 0 0 2px rgba(28, 63, 170, 0.15);
+}
+
+/* --- Bouton de connexion --- */
+.login-btn {
+  background: #1c3faa;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+  background: #2d55e2;
+  transform: translateY(-1px);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* --- Message d’erreur --- */
+.error-text {
+  color: #e63946;
+  font-weight: 500;
+  background: #ffe5e5;
+  border-radius: 6px;
+  padding: 8px 10px;
+  text-align: center;
+  margin-top: -5px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 500px) {
+  .login-container {
+    margin: 50px 15px;
+    padding: 30px 20px;
+  }
+
+  .login-container h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* --- Bouton retour --- */
+.back-btn {
+  background: transparent;
+  border: none;
+  color: #1c3faa;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.back-btn:hover {
+  color: #2d55e2;
+  text-decoration: underline;
+}
