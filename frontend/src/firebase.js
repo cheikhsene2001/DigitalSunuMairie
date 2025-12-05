@@ -32,14 +32,21 @@ const firebaseConfig = {
   apiKey: "AIzaSyCLaQ-On_50hmJyqI6JBmHru9q4m9mdy3w",
   authDomain: "digitalsunumairie.firebaseapp.com",
   projectId: "digitalsunumairie",
-  storageBucket: "digitalsunumairie.appspot.com", // ✅ CORRECTION ICI
+  storageBucket: "digitalsunumairie.appspot.com",
   messagingSenderId: "549662751113",
   appId: "1:549662751113:web:d6a00944df3093a7e30958",
   measurementId: "G-EQ46FL3RYT"
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
+let auth = null;
+let provider = null;
+
+try {
+  const app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  provider = new GoogleAuthProvider();
+} catch (error) {
+  console.warn("Firebase initialization warning:", error);
+}
 
 export { auth, provider };

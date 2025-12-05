@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import Region, Departement, Commune, Mairie, DemandeCertificat
+from .models import Region, Departement, Commune, Mairie, DemandeCertificat, Paiement
 
 # -------------------------------
 # 1️⃣ Sérialiseurs géographiques
@@ -123,6 +123,19 @@ class DemandeCertificatSerializer(serializers.ModelSerializer):
     mairie_id = serializers.PrimaryKeyRelatedField(
         queryset=Mairie.objects.all(), source='mairie', write_only=True
     )
+    paiement = serializers.SerializerMethodField()
+
+    def get_paiement(self, obj):
+        try:
+            paiement = obj.paiement
+            return {
+                'id': paiement.id,
+                'statut': paiement.statut,
+                'montant': float(paiement.montant),
+                'date_paiement': paiement.date_paiement
+            }
+        except:
+            return None
 
     class Meta:
         model = DemandeCertificat
@@ -140,4 +153,28 @@ class DemandeCertificatSerializer(serializers.ModelSerializer):
             'statut',
             'mairie',
             'mairie_id',
+            'paiement',
         ]
+
+
+# ========================
+# 5️⃣ Sérialiseur Paiement
+# ========================
+
+class PaiementSerializer(serializers.ModelSerializer):
+    demande_id = serializers.IntegerField(source='demande.id', read_only=True)
+    
+    class Meta:
+        model = Paiement
+        fields = [
+            'id',
+            'demande_id',
+            'montant',
+            'methode',
+            'statut',
+            'reference_transaction',
+            'numero_telephone',
+            'date_creation',
+            'date_paiement',
+        ]
+        read_only_fields = ['id', 'date_creation', 'date_paiement']

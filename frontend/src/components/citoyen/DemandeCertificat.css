@@ -1,53 +1,119 @@
+/* CSS pour DemandeCertificat - Inclus dans Dashboard.css */
+/* Les styles sont déjà définis dans Dashboard.css pour cohérence */
+
 .demande-container {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 30px;
-  background: #ffffff;
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .demande-container h2 {
   text-align: center;
-  color: #2c3e50;
-  margin-bottom: 20px;
+  color: #1a5f3c;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 700;
 }
 
 .demande-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px;
 }
 
 .demande-form label {
-  font-weight: bold;
-  color: #34495e;
+  font-weight: 700;
+  color: #1a5f3c;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
+.demande-form input,
 .demande-form select,
 .demande-form textarea {
-  padding: 10px;
+  padding: 12px 15px;
   border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  font-size: 14px;
+  transition: all 0.3s;
+  font-family: inherit;
+}
+
+.demande-form input:focus,
+.demande-form select:focus,
+.demande-form textarea:focus {
+  outline: none;
+  border-color: #1a5f3c;
+  box-shadow: 0 0 0 3px rgba(26, 95, 60, 0.1);
+  background: #fafbfc;
 }
 
 .demande-form textarea {
-  min-height: 80px;
-  resize: none;
+  min-height: 100px;
+  resize: vertical;
 }
 
-.btn-envoyer {
-  background: #2ecc71;
+.demande-form input:disabled,
+.demande-form select:disabled {
+  background: #f5f5f5;
+  color: #999;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #1a5f3c 0%, #0f3d24 100%);
   color: white;
   border: none;
-  padding: 12px;
+  padding: 14px 30px;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.3s;
+  margin-top: 10px;
 }
 
-.btn-envoyer:hover {
-  background: #27ae60;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(26, 95, 60, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.success-text,
+.error-text {
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.success-text {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error-text {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }

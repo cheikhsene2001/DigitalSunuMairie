@@ -159,6 +159,7 @@ export default function MairieLogin() {
   const [commune, setCommune] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // Charger les régions
   useEffect(() => {
@@ -200,6 +201,7 @@ export default function MairieLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     try {
       const response = await fetch("http://127.0.0.1:8000/api/mairie/login/", {
@@ -220,72 +222,112 @@ export default function MairieLogin() {
     } catch (err) {
       console.error("Erreur login mairie:", err);
       setError("Erreur serveur. Veuillez réessayer.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="login-container">
-      {/* --- Bouton retour --- */}
-      <button className="back-btn" onClick={() => navigate("/")}>
-        ← Retour
-      </button>
-
-      <h2>Connexion Mairie</h2>
-
-      <form onSubmit={handleLogin}>
-        <label>Région</label>
-        <select value={region} onChange={(e) => setRegion(e.target.value)}>
-          <option value="">-- Choisir une région --</option>
-          {regions.map((r) => (
-            <option key={r.id} value={r.nom}>
-              {r.nom}
-            </option>
-          ))}
-        </select>
-
-        <label>Département</label>
-        <select
-          value={departement}
-          onChange={(e) => setDepartement(e.target.value)}
-          disabled={!region}
-        >
-          <option value="">-- Choisir un département --</option>
-          {departements.map((d) => (
-            <option key={d.id} value={d.nom}>
-              {d.nom}
-            </option>
-          ))}
-        </select>
-
-        <label>Commune</label>
-        <select
-          value={commune}
-          onChange={(e) => setCommune(e.target.value)}
-          disabled={!departement}
-        >
-          <option value="">-- Choisir une commune --</option>
-          {communes.map((c) => (
-            <option key={c.id} value={c.id}>
-              {c.nom}
-            </option>
-          ))}
-        </select>
-
-        <label>Mot de passe</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Mot de passe mairie"
-          required
-        />
-
-        {error && <p className="error-text">{error}</p>}
-
-        <button type="submit" className="login-btn">
-          Se connecter
+    <div className="mairie-login-wrapper">
+      <nav className="login-navbar">
+        <div className="navbar-brand-login">
+          <span>🏛️</span>
+          <h3>Mairie Sénégal</h3>
+        </div>
+        <button className="back-btn-login" onClick={() => navigate("/")}>
+          ← Retour
         </button>
-      </form>
+      </nav>
+
+      <div className="login-container-mairie">
+        <div className="login-card">
+          <div className="login-header">
+            <div className="login-icon">🔐</div>
+            <h2>Espace Administrateur</h2>
+            <p>Gestion des demandes de certificats</p>
+          </div>
+
+          <form onSubmit={handleLogin} className="login-form">
+            {/* Région */}
+            <div className="form-group">
+              <label>🌍 Région</label>
+              <select 
+                value={region} 
+                onChange={(e) => setRegion(e.target.value)}
+                className="form-input"
+              >
+                <option value="">-- Sélectionner une région --</option>
+                {regions.map((r) => (
+                  <option key={r.id} value={r.nom}>
+                    {r.nom}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Département */}
+            <div className="form-group">
+              <label>📍 Département</label>
+              <select
+                value={departement}
+                onChange={(e) => setDepartement(e.target.value)}
+                disabled={!region}
+                className="form-input"
+              >
+                <option value="">-- Sélectionner un département --</option>
+                {departements.map((d) => (
+                  <option key={d.id} value={d.nom}>
+                    {d.nom}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Commune */}
+            <div className="form-group">
+              <label>🏘️ Commune</label>
+              <select
+                value={commune}
+                onChange={(e) => setCommune(e.target.value)}
+                disabled={!departement}
+                className="form-input"
+              >
+                <option value="">-- Sélectionner une commune --</option>
+                {communes.map((c) => (
+                  <option key={c.id} value={c.id}>
+                    {c.nom}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Mot de passe */}
+            <div className="form-group">
+              <label>🔑 Mot de passe</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Entrez votre mot de passe"
+                className="form-input"
+                required
+              />
+            </div>
+
+            {/* Message d'erreur */}
+            {error && <div className="error-message">{error}</div>}
+
+            {/* Bouton connexion */}
+            <button type="submit" className="login-btn-submit" disabled={loading}>
+              {loading ? "Connexion en cours..." : "Se connecter"}
+            </button>
+          </form>
+
+          <div className="login-footer">
+            <p>Mot de passe par défaut : <strong>2025</strong></p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

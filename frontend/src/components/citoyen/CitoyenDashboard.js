@@ -1,178 +1,5 @@
 
 
-// import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import DemandeCertificat from "./DemandeCertificat";
-// import CertificatsList from "./CertificatsList";
-// import ProfilCitoyen from "./ProfilCitoyen";
-// import "./Dashboard.css";
-
-// function Dashboard() {
-//   const [activeTab, setActiveTab] = useState("accueil");
-//   const navigate = useNavigate();
-
-//   const renderContent = () => {
-//     switch (activeTab) {
-//       case "demandes":
-//         return <DemandeCertificat />;
-//       case "certificats":
-//         return <CertificatsList />;
-//       case "profil":
-//         return <ProfilCitoyen />;
-//       default:
-//         return (
-//           <div className="dashboard-welcome">
-//             <h2>Bienvenue sur votre espace citoyen 👋</h2>
-//             <p>
-//               Depuis ce tableau de bord, vous pouvez effectuer vos demandes de certificats, 
-//               suivre leur avancement, et consulter vos informations personnelles.
-//             </p>
-//             <img
-//               src="https://cdn-icons-png.flaticon.com/512/4359/4359957.png"
-//               alt="illustration"
-//             />
-//             <br />
-//             {/* ✅ Nouveau bouton pour accéder aux demandes */}
-//             <button 
-//               className="demande-btn"
-//               onClick={() => setActiveTab("demandes")}
-//             >
-//               📝 Cliquer ici pour faire une demande
-//             </button>
-//           </div>
-//         );
-//     }
-//   };
-
-//   const handleLogout = () => {
-//     localStorage.removeItem("citoyen");
-//     navigate("/");
-//   };
-
-//   return (
-//     <div className="dashboard-container">
-//       <nav className="navbar">
-//         <div className="navbar-logo">🏛️ Digital Sunu Mairie</div>
-//         <ul className="navbar-links">
-//           <li
-//             className={activeTab === "accueil" ? "active" : ""}
-//             onClick={() => setActiveTab("accueil")}
-//           >
-//             Accueil
-//           </li>
-//           <li
-//             className={activeTab === "demandes" ? "active" : ""}
-//             onClick={() => setActiveTab("demandes")}
-//           >
-//             Demandes
-//           </li>
-//           <li
-//             className={activeTab === "certificats" ? "active" : ""}
-//             onClick={() => setActiveTab("certificats")}
-//           >
-//             Certificats
-//           </li>
-//           <li
-//             className={activeTab === "profil" ? "active" : ""}
-//             onClick={() => setActiveTab("profil")}
-//           >
-//             Profil
-//           </li>
-//         </ul>
-//         <button className="logout-btn" onClick={handleLogout}>
-//           Déconnexion
-//         </button>
-//       </nav>
-
-//       <main className="dashboard-content">{renderContent()}</main>
-//     </div>
-//   );
-// }
-
-// export default Dashboard;
-
-// import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import DemandeCertificat from "./DemandeCertificat";
-// import CertificatsList from "./CertificatsList";
-// import ProfilCitoyen from "./ProfilCitoyen";
-// import "./Dashboard.css";
-
-// export default function CitoyenDashboard() {
-//   const [activeTab, setActiveTab] = useState("accueil");
-//   const navigate = useNavigate();
-
-//   const renderContent = () => {
-//     switch (activeTab) {
-//       case "demandes":
-//         return <DemandeCertificat />;
-//       case "certificats":
-//         return <CertificatsList />;
-//       case "profil":
-//         return <ProfilCitoyen />;
-//       default:
-//         return (
-//           <div className="citoyen-welcome">
-//             <h2>Bienvenue sur votre espace citoyen 👋</h2>
-//             <p>
-//               Faites vos demandes administratives, suivez leur progression et accédez facilement à vos certificats.
-//             </p>
-
-//             <img
-//               src="https://cdn-icons-png.flaticon.com/512/4359/4359957.png"
-//               alt="illustration"
-//               className="citoyen-illustration"
-//             />
-
-//             <button 
-//               className="start-demand-btn"
-//               onClick={() => setActiveTab("demandes")}
-//             >
-//               📝 Faire une demande maintenant
-//             </button>
-//           </div>
-//         );
-//     }
-//   };
-
-//   const handleLogout = () => {
-//     localStorage.removeItem("citoyen");
-//     navigate("/");
-//   };
-
-//   return (
-//     <div className="citoyen-layout">
-
-//       {/* SIDEBAR */}
-//       <aside className="citoyen-sidebar">
-//         <div className="sidebar-logo">🏛️ Digital Sunu Mairie</div>
-
-//         <ul className="sidebar-menu">
-//           <li className={activeTab === "accueil" ? "active" : ""} onClick={() => setActiveTab("accueil")}>
-//             🏠 Accueil
-//           </li>
-//           <li className={activeTab === "demandes" ? "active" : ""} onClick={() => setActiveTab("demandes")}>
-//             📝 Demandes
-//           </li>
-//           <li className={activeTab === "certificats" ? "active" : ""} onClick={() => setActiveTab("certificats")}>
-//             📄 Certificats
-//           </li>
-//           <li className={activeTab === "profil" ? "active" : ""} onClick={() => setActiveTab("profil")}>
-//             👤 Profil
-//           </li>
-//         </ul>
-
-//         <button className="sidebar-logout" onClick={handleLogout}>
-//           🔓 Déconnexion
-//         </button>
-//       </aside>
-
-//       {/* CONTENT */}
-//       <main className="citoyen-content">{renderContent()}</main>
-//     </div>
-//   );
-// }
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DemandeCertificat from "./DemandeCertificat";
@@ -180,9 +7,10 @@ import CertificatsList from "./CertificatsList";
 import ProfilCitoyen from "./ProfilCitoyen";
 import "./Dashboard.css";
 
-function Dashboard() {
+function CitoyenDashboard() {
   const [activeTab, setActiveTab] = useState("accueil");
   const navigate = useNavigate();
+  const citoyen = JSON.parse(localStorage.getItem("citoyen") || "{}");
 
   const renderContent = () => {
     switch (activeTab) {
@@ -194,23 +22,52 @@ function Dashboard() {
         return <ProfilCitoyen />;
       default:
         return (
-          <div className="dashboard-welcome">
-            <h2>Bienvenue sur votre espace citoyen 👋</h2>
-            <p>
-              Faites vos demandes de certificats, suivez votre dossier et
-              téléchargez vos documents validés.
-            </p>
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/4359/4359957.png"
-              alt="illustration"
-              className="welcome-img"
-            />
-            <button 
-              className="demande-btn"
-              onClick={() => setActiveTab("demandes")}
-            >
-              📝 Faire une demande
-            </button>
+          <div className="welcome-section">
+            <div className="welcome-header">
+              <h1>Bienvenue, {citoyen.nom || "Citoyen"} 👋</h1>
+              <p>Votre plateforme numérique pour les services de la mairie</p>
+            </div>
+
+            <div className="stats-grid">
+              <div className="stat-card">
+                <div className="stat-icon">📝</div>
+                <h3>Mes Demandes</h3>
+                <p>Créer et suivre vos demandes de certificats</p>
+                <button className="stat-btn" onClick={() => setActiveTab("demandes")}>Accéder</button>
+              </div>
+
+              <div className="stat-card">
+                <div className="stat-icon">📄</div>
+                <h3>Mes Certificats</h3>
+                <p>Télécharger vos certificats validés</p>
+                <button className="stat-btn" onClick={() => setActiveTab("certificats")}>Accéder</button>
+              </div>
+
+              <div className="stat-card">
+                <div className="stat-icon">👤</div>
+                <h3>Mon Profil</h3>
+                <p>Gérer vos informations personnelles</p>
+                <button className="stat-btn" onClick={() => setActiveTab("profil")}>Accéder</button>
+              </div>
+            </div>
+
+            <div className="info-section">
+              <h2>ℹ️ Guide d'utilisation</h2>
+              <div className="info-cards">
+                <div className="info-card">
+                  <h4>1️⃣ Faire une demande</h4>
+                  <p>Allez à l'onglet "Demandes" et remplissez le formulaire avec vos informations.</p>
+                </div>
+                <div className="info-card">
+                  <h4>2️⃣ Suivre la progression</h4>
+                  <p>Consultez l'onglet "Mes Certificats" pour voir l'état de vos demandes.</p>
+                </div>
+                <div className="info-card">
+                  <h4>3️⃣ Télécharger le certificat</h4>
+                  <p>Une fois validé par la mairie, téléchargez votre certificat en PDF.</p>
+                </div>
+              </div>
+            </div>
           </div>
         );
     }
@@ -222,24 +79,75 @@ function Dashboard() {
   };
 
   return (
-    <div className="citoyen-container">
-      <nav className="citoyen-navbar">
-        <div className="navbar-logo">🏛️ Digital Sunu Mairie</div>
-        <ul className="navbar-links">
-          <li className={activeTab === "accueil" ? "active" : ""} onClick={() => setActiveTab("accueil")}>Accueil</li>
-          <li className={activeTab === "demandes" ? "active" : ""} onClick={() => setActiveTab("demandes")}>Demandes</li>
-          <li className={activeTab === "certificats" ? "active" : ""} onClick={() => setActiveTab("certificats")}>Certificats</li>
-          <li className={activeTab === "profil" ? "active" : ""} onClick={() => setActiveTab("profil")}>Profil</li>
-        </ul>
-        <button className="logout-btn" onClick={handleLogout}>Déconnexion</button>
+    <div className="citoyen-layout">
+      {/* NAVBAR PREMIUM */}
+      <nav className="premium-navbar">
+        <div className="navbar-container">
+          <div className="navbar-brand">
+            <span className="brand-icon">🇸🇳</span>
+            <div className="brand-text">
+              <h3>Digital Sunu Mairie</h3>
+              <p>Service Public Numérique</p>
+            </div>
+          </div>
+
+          <ul className="nav-menu">
+            <li>
+              <button
+                type="button"
+                className={`nav-link ${activeTab === "accueil" ? "active" : ""}`}
+                onClick={() => setActiveTab("accueil")}
+              >
+                <span>🏠</span> Accueil
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className={`nav-link ${activeTab === "demandes" ? "active" : ""}`}
+                onClick={() => setActiveTab("demandes")}
+              >
+                <span>📝</span> Demandes
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className={`nav-link ${activeTab === "certificats" ? "active" : ""}`}
+                onClick={() => setActiveTab("certificats")}
+              >
+                <span>📄</span> Certificats
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className={`nav-link ${activeTab === "profil" ? "active" : ""}`}
+                onClick={() => setActiveTab("profil")}
+              >
+                <span>👤</span> Profil
+              </button>
+            </li>
+          </ul>
+
+          <button className="logout-btn" onClick={handleLogout}>
+            <span>🔓</span> Déconnexion
+          </button>
+        </div>
       </nav>
 
-      <main className="citoyen-content">
+      {/* MAIN CONTENT */}
+      <main className="citoyen-main">
         {renderContent()}
       </main>
+
+      {/* FOOTER */}
+      <footer className="citoyen-footer">
+        <p>© 2025 Digital Sunu Mairie - Service Public du Sénégal</p>
+      </footer>
     </div>
   );
 }
 
-export default Dashboard;
+export default CitoyenDashboard;
 

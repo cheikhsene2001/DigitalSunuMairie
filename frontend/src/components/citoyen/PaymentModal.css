@@ -1,0 +1,217 @@
+.payment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.payment-modal {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.4s ease-out;
+  position: relative;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.payment-modal h2 {
+  color: #1a5f3c;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.payment-info {
+  background: #f0f7f4;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.payment-info strong {
+  color: #1a5f3c;
+  font-size: 16px;
+}
+
+.small-text {
+  color: #999;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.error-message {
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 13px;
+  border-left: 4px solid #d32f2f;
+}
+
+.paydounya-logo {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef2 100%);
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.logo-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.paydounya-logo p {
+  color: #333;
+  font-size: 15px;
+  margin: 0;
+}
+
+.paydounya-logo strong {
+  color: #1a5f3c;
+  font-weight: 600;
+}
+
+.payment-methods {
+  margin: 25px 0;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.payment-methods h3 {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.payment-methods ul {
+  list-style: none;
+  padding: 0;
+}
+
+.payment-methods li {
+  color: #666;
+  font-size: 13px;
+  padding: 6px 0;
+  padding-left: 20px;
+}
+
+.payment-methods li:before {
+  content: "✓ ";
+  color: #1a5f3c;
+  font-weight: bold;
+  margin-left: -18px;
+  margin-right: 8px;
+}
+
+.btn-pay {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #1a5f3c 0%, #0d3d26 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 15px;
+}
+
+.btn-pay:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 95, 60, 0.3);
+}
+
+.btn-pay:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.payment-note {
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+  .payment-modal {
+    width: 95%;
+    padding: 25px;
+    max-width: none;
+  }
+
+  .payment-modal h2 {
+    font-size: 20px;
+  }
+
+  .paydounya-logo {
+    padding: 20px;
+  }
+
+  .logo-icon {
+    font-size: 40px;
+  }
+
+  .payment-methods {
+    margin: 20px 0;
+    padding: 15px;
+  }
+}

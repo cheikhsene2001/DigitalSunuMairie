@@ -149,3 +149,52 @@ class DemandeCertificat(models.Model):
 
     def __str__(self):
         return f"{self.prenom} {self.nom} | {self.get_type_certificat_display()} | {self.statut}"
+
+    class Meta:
+        verbose_name = "Demande de Certificat"
+        verbose_name_plural = "Demandes de Certificat"
+        ordering = ['-date_demande']
+
+
+# ========================
+# 3️⃣ PAIEMENTS (Wave/Orange Money)
+# ========================
+
+class Paiement(models.Model):
+    """Modèle pour gérer les paiements des certificats"""
+    
+    STATUT_PAIEMENT_CHOICES = [
+        ('EN_ATTENTE', 'En attente'),
+        ('EFFECTUE', 'Effectué'),
+        ('ECHEC', 'Échec'),
+        ('ANNULE', 'Annulé'),
+    ]
+    
+    METHODE_PAIEMENT_CHOICES = [
+        ('PAYTECH', 'PayTech'),
+        ('MANUEL', 'Manuel (Mairie)'),
+    ]
+    
+    # Lien avec la demande de certificat
+    demande = models.OneToOneField(DemandeCertificat, on_delete=models.CASCADE, related_name='paiement')
+    
+    # Info paiement
+    montant = models.DecimalField(max_digits=10, decimal_places=2, default=500)  # En CFA (500 FCFA par défaut)
+    methode = models.CharField(max_length=20, choices=METHODE_PAIEMENT_CHOICES, default='PAYTECH')
+    statut = models.CharField(max_length=20, choices=STATUT_PAIEMENT_CHOICES, default='EN_ATTENTE')
+    
+    # Infos transaction paiement en ligne
+    reference_transaction = models.CharField(max_length=100, null=True, blank=True, unique=True)
+    numero_telephone = models.CharField(max_length=20, blank=True, null=True)  # Pour trace
+    
+    # Dates
+    date_creation = models.DateTimeField(auto_now_add=True)
+    date_paiement = models.DateTimeField(null=True, blank=True)
+    
+    class Meta:
+        verbose_name = "Paiement"
+        verbose_name_plural = "Paiements"
+        ordering = ['-date_creation']
+    
+    def __str__(self):
+        return f"Paiement {self.demande.id} - {self.montant} FCFA - {self.statut}"
